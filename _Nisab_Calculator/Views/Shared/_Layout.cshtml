@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Dto Form</title>
+</head>
+@RenderBody()
+<body>
+
+    <form method="post" action="/api/Calculator/calculate">
+
+        <label for="EuroAdet">Euro Adet:</label>
+        <input type="number" name="EuroAdet" value="@Model?.EuroAdet" />
+
+        <label for="Dolaradet">Dolar Adet:</label>
+        <input type="number" name="Dolaradet" value="@Model?.DolarAdet" />
+
+        <label for="SterlinAdet">Sterlin Adet:</label>
+        <input type="number" name="Sterlinadet" value="@Model?.SterlinAdet" />
+
+        <label for="GramAltınAdet">GramAltın Adet:</label>
+        <input type="number" name="GramAltınadet" value="@Model?.GramAltınAdet" />
+
+        <label for="BtcAdet">Btc Adet:</label>
+        <input type="number" name="Btcadet" value="@Model?.BtcAdet" />
+
+        <label for="EthAdet">Eth Adet:</label>
+        <input type="number" name="Ethadet" value="@Model?.EthAdet" />
+
+        <label for="XRPAdet">XRP Adet:</label>
+        <input type="number" name="XRPadet" value="@Model?.XRPAdet" />
+
+        <!-- Diğer alanları da benzer şekilde ekleyebilirsiniz -->
+
+        <button type="submit">Gönder</button>
+    </form>
+    @if (Model?.toplam > 80.18)
+    {
+        <h2>Nisaba maliksiniz.</h2>
+        <h2>Sonuç: @Model.toplam</h2>
+    }
+</body>
+</html>
