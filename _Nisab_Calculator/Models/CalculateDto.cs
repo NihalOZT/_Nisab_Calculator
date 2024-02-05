@@ -12,5 +12,6 @@
         public double toplam { get; set; }
         public double borc { get; set; }
         public bool isMalik {  get; set; }
+        public double zekat { get; set; }
     }
 }

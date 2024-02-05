@@ -1,42 +1,32 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Calculate Dto Form</title>
+    <title>@ViewBag.Title - Nisab Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyEGlfEY93mdbe1pgpDQByPW6SA1c2M6L" crossorigin="anonymous">
 </head>
-@RenderBody()
 <body>
-
-    <form method="post" action="/api/Calculator/calculate">
-
-        <label for="EuroAdet">Euro Adet:</label>
-        <input type="number" name="EuroAdet" value="@Model?.EuroAdet" />
-
-        <label for="Dolaradet">Dolar Adet:</label>
-        <input type="number" name="Dolaradet" value="@Model?.DolarAdet" />
-
-        <label for="SterlinAdet">Sterlin Adet:</label>
-        <input type="number" name="Sterlinadet" value="@Model?.SterlinAdet" />
-
-        <label for="GramAltınAdet">GramAltın Adet:</label>
-        <input type="number" name="GramAltınadet" value="@Model?.GramAltınAdet" />
-
-        <label for="BtcAdet">Btc Adet:</label>
-        <input type="number" name="Btcadet" value="@Model?.BtcAdet" />
-
-        <label for="EthAdet">Eth Adet:</label>
-        <input type="number" name="Ethadet" value="@Model?.EthAdet" />
-
-        <label for="XRPAdet">XRP Adet:</label>
-        <input type="number" name="XRPadet" value="@Model?.XRPAdet" />
-
-        <!-- Diğer alanları da benzer şekilde ekleyebilirsiniz -->
-
-        <button type="submit">Gönder</button>
-    </form>
-    @if (Model?.toplam > 80.18)
-    {
-        <h2>Nisaba maliksiniz.</h2>
-        <h2>Sonuç: @Model.toplam</h2>
-    }
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="/">Nisab Calculator</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/">Home</a>
+                            </li>
+                            <!-- Diğer sayfaları buraya ekle -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
 </body>
 </html>

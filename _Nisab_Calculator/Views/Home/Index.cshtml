@@ -1,0 +1,55 @@
+﻿@model _Nisab_Calculator.Models.CalculateDto
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyEGlfEY93mdbe1pgpDQByPW6SA1c2M6L" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Calculator</h1>
+        <form method="post" action="calculate1">
+            <div class="form-group">
+                <label for="DolarAdet">Dolar Adet:</label>
+                <input type="text" class="form-control" name="DolarAdet" />
+
+                <label for="SterlinAdet">Sterlin Adet:</label>
+                <input type="text" class="form-control" name="SterlinAdet" />
+
+                <label for="EuroAdet">Euro Adet:</label>
+                <input type="text" class="form-control" name="EuroAdet" />
+
+                <label for="GramAltınAdet">GramAltın Adet:</label>
+                <input type="text" class="form-control" name="GramAltınAdet" />
+
+                <label for="BtcAdet">Btc Adet:</label>
+                <input type="text" class="form-control" name="BtcAdet" />
+
+                <label for="EthAdet">Eth Adet:</label>
+                <input type="text" class="form-control" name="EthAdet" />
+
+                <label for="XRPAdet">XRP Adet:</label>
+                <input type="text" class="form-control" name="XRPAdet" />
+            </div>
+            <!-- Diğer input alanlarını buraya ekle -->
+
+            <button type="submit" class="btn btn-primary">Hesapla</button>
+        </form>
+
+        @if (Model != null && Model.isMalik)
+        {
+            <div class="alert alert-success mt-3" role="alert">
+                Toplam değer 80.18'den büyük! Maliksiniz.
+                Vermeniz gereken miktar toplam { @Model.zekat}
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info mt-3" role="alert">
+                Toplam değer 80.18'den küçük veya eşit.
+            </div>
+        }
+    </div>
+</body>
+</html>
