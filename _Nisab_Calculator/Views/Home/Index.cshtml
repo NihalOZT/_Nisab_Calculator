@@ -5,37 +5,135 @@
 <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyEGlfEY93mdbe1pgpDQByPW6SA1c2M6L" crossorigin="anonymous">
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #111;
+                }
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+</style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Calculator</h1>
-        <form method="post" action="calculate1">
+        <ul>
+            <li><a class="active" href="#home">Anasayfa</a></li>
+            <li><a href="home">Zekat</a></li>
+            <li><a href="api/Fidye">Fidye</a></li>
+            <li><a href="#about">Hakkımızda</a></li>
+        </ul>
+        <h1>Güvenilir Zekat ve Fitre Hesaplama Programı</h1>
+        
+        <img src="/images/indir.jpg" alt="" style="width:30%;height:300px;">
+        <img src="/images/indirr.jpg" alt="" style="width:30%;height:300px;">
+        <img src="/images/indir1.jpg" alt="" style="width:30%;height:300px;">
+
+
+        <form method="post" action="calculateNisap">
             <div class="form-group">
                 <label for="DolarAdet">Dolar Adet:</label>
-                <input type="text" class="form-control" name="DolarAdet" />
+                <input type="text" class="form-control" name="DolarAdet" placeholder="Your Dolar..." />
+          
 
                 <label for="SterlinAdet">Sterlin Adet:</label>
-                <input type="text" class="form-control" name="SterlinAdet" />
+                <input type="text" class="form-control" name="SterlinAdet" placeholder="Your Sterlin..." />
 
                 <label for="EuroAdet">Euro Adet:</label>
-                <input type="text" class="form-control" name="EuroAdet" />
+                <input type="text" class="form-control" name="EuroAdet" placeholder="Your Euro..." />
 
                 <label for="GramAltınAdet">GramAltın Adet:</label>
-                <input type="text" class="form-control" name="GramAltınAdet" />
+                <input type="text" class="form-control" name="GramAltınAdet" placeholder="Your Gram Altın..." />
 
                 <label for="BtcAdet">Btc Adet:</label>
-                <input type="text" class="form-control" name="BtcAdet" />
+                <input type="text" class="form-control" name="BtcAdet" placeholder="Your BTC..." />
 
                 <label for="EthAdet">Eth Adet:</label>
-                <input type="text" class="form-control" name="EthAdet" />
+                <input type="text" class="form-control" name="EthAdet" placeholder="Your ETH..." />
 
                 <label for="XRPAdet">XRP Adet:</label>
-                <input type="text" class="form-control" name="XRPAdet" />
+                <input type="text" class="form-control" name="XRPAdet" placeholder="Your XRP..." />
             </div>
-            <!-- Diğer input alanlarını buraya ekle -->
 
-            <button type="submit" class="btn btn-primary">Hesapla</button>
+            <br />
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Hesapla</button>
+            </div>
         </form>
+        <a href="https://bagis.tdv.org/?gclid=CjwKCAiAq4KuBhA6EiwArMAw1PTBvoYx1SQTZ8_4FdctKYzNS4eyyl_YpkkLIWQpRb5mnO5HIwcYXRoCZ1wQAvD_BwE" target="_blank">Bağış Yap</a>
 
         @if (Model != null && Model.isMalik)
         {
@@ -50,6 +148,8 @@
                 Toplam değer 80.18'den küçük veya eşit.
             </div>
         }
+
+
     </div>
 </body>
 </html>

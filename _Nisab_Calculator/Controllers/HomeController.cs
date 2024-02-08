@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using Newtonsoft.Json;
+using System.Reflection.Metadata.Ecma335;
 
 
 namespace _Nisab_Calculator.Controllers
@@ -25,20 +26,12 @@ namespace _Nisab_Calculator.Controllers
             return data;
         }
 
-        [HttpGet]
-        [Route("getEmtiaData")]
-        public Task<Root> getEmtiaData()
-        {
-            return getData();
-        }
-
-        [HttpPost]
-        [Route("calculate")]
         public CalculateDto calculatorNisab([FromBody] CalculateDto calculateDto)
         {
             Root root = getData().Result;
 
-            calculateDto.toplam = (Double.Parse(root.USD.Alis) * calculateDto.DolarAdet +
+            calculateDto.toplam = (
+                Double.Parse(root.USD.Alis) * calculateDto.DolarAdet +
                 Double.Parse(root.GBP.Alis) * calculateDto.SterlinAdet +
                 Double.Parse(root.EUR.Alis) * calculateDto.EuroAdet +
                 Double.Parse(root.GA.Alis) * calculateDto.GramAltınAdet +
@@ -56,18 +49,22 @@ namespace _Nisab_Calculator.Controllers
             return calculateDto;
             
         }
+
+
         [HttpPost]
-        [Route("calculate1")]
+        [Route("calculateNisap")]
         public IActionResult Index([FromForm] CalculateDto calculateDto)
         {
-            CalculateDto calculate = calculatorNisab(calculateDto);
-            return View("Index", calculate);
+            CalculateDto calculateNisab = calculatorNisab(calculateDto);
+            
+            return View("Index", calculateNisab);
 
         }
-        public IActionResult Index()
-            {
-                return View();
-            }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
     }
 }

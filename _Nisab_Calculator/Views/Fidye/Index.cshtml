@@ -1,0 +1,134 @@
+﻿@model _Nisab_Calculator.Models.FidyeCalculatorDto
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyEGlfEY93mdbe1pgpDQByPW6SA1c2M6L" crossorigin="anonymous">
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #111;
+                }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        button[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+            button[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+
+    </head>
+    <body>
+
+    <form method="post" action="Fidye/calculateFidye">
+        <div class="form-group">
+            <label for="AileÜyesi">Arpa Fiyatı:</label>
+            <input type="text" class="form-control" name="AileÜyesi" placeholder="Kişi Sayısı" />
+
+            <label for="UnFiyatı">Un Fiyatı:</label>
+            <input type="text" class="form-control" name="UnFiyatı" placeholder="Kişi Sayısı" />
+
+            <label for="HurmaFiyatı">Hurma Fiyatı:</label>
+            <input type="text" class="form-control" name="HurmaFiyatı" placeholder="Kişi Sayısı" />
+
+            <label for="KuruÜzümFiyatı">KuruÜzüm Fiyatı :</label>
+            <input type="text" class="form-control" name="KuruÜzümFiyatı" placeholder="Kişi Sayısı" />
+
+            <label for="BuğdayFiyatı">Buğday Fiyatı:</label>
+            <input type="text" class="form-control" name="BuğdayFiyatı" placeholder="Kişi Sayısı" />
+
+        </div>
+        <!-- Diğer input alanlarını buraya ekle -->
+        <br />
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Hesapla</button>
+        </div>
+    </form>
+    @if (Model != null )
+    {
+        <div class="alert alert-success mt-3" role="alert">
+            Toplam değer 80.18'den büyük! Maliksiniz.
+            Vermeniz gereken miktar toplam @Model.ArpaFiyatı, @Model.UnFiyatı,@Model.HurmaFiyatı, @Model.BuğdayFiyatı, @Model.KuruÜzümFiyatı
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3" role="alert">
+            Toplam değer 80.18'den küçük veya eşit.
+        </div>
+    }
+    </body>
+
+</html>
