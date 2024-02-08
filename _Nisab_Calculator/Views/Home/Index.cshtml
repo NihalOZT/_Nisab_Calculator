@@ -5,32 +5,47 @@
 <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyEGlfEY93mdbe1pgpDQByPW6SA1c2M6L" crossorigin="anonymous">
+
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-spacing: border-box;
+        }
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #333;
+            overflow: hidden; 
+            background-color: #01796F;
+           
         }
 
         li {
             float: left;
+            
         }
 
             li a {
                 display: block;
                 color: white;
                 text-align: center;
+                font-size:200%;
                 padding: 14px 16px;
                 text-decoration: none;
             }
 
                 li a:hover {
-                    background-color: #111;
+                    background-color: #4BA47E;
                 }
+       
 * {
   box-sizing: border-box;
+}
+img {
+            margin: 0px;
+            padding:0px;
+            margin-left:40px;
 }
 
 input[type=text], select, textarea {
@@ -40,6 +55,31 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
+
+.baslık{
+            margin-left: 250px;
+            margin-right: auto;
+            width: 50em;
+             color: #01796F;
+}
+
+.metin{
+           font-size:35px;
+           color: #01796F;
+           top:100px;
+           bottom:100px;
+}
+
+ .son{
+            background-color: #01796F;
+         
+ }
+
+ .son p{
+     font-size:20px;
+     color:white;
+     
+ }
 
 label {
   padding: 12px 12px 12px 0;
@@ -63,7 +103,9 @@ button[type=submit]:hover {
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  padding: 0px;
+  margin: 0px;
+  top:0px;
 }
 
 .col-25 {
@@ -78,36 +120,40 @@ button[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
 .row::after {
   content: "";
   display: table;
   clear: both;
 }
 
-
 </style>
 </head>
-<body>
+<body >
     <div class="container mt-5">
         <ul>
             <li><a class="active" href="#home">Anasayfa</a></li>
             <li><a href="home">Zekat</a></li>
-            <li><a href="api/Fidye">Fidye</a></li>
+            <li><a href="Fidye">Fidye</a></li>
             <li><a href="#about">Hakkımızda</a></li>
-        </ul>
-        <h1>Güvenilir Zekat ve Fitre Hesaplama Programı</h1>
-        
-        <img src="/images/indir.jpg" alt="" style="width:30%;height:300px;">
-        <img src="/images/indirr.jpg" alt="" style="width:30%;height:300px;">
-        <img src="/images/indir1.jpg" alt="" style="width:30%;height:300px;">
 
+        </ul>
+        <h1 class="baslık">
+            Eğer bir ışığın varsa, onu insanlarla paylaş; eğer bir karanlığın varsa onu güneşle paylaş!
+        </h1>
+
+        <img src="/images/slide-1.jpeg" alt="" style="width:30%;height:300px;">
+        <img src="/images/slide-2.jpeg" alt="" style="width:30%;height:300px;">
+        <img src="/images/slide-3.jpeg" alt="" style="width:30%;height:300px;">
+
+        <div class="metin"> 
+            <p>Güneydoğu Anadolu Bölgesi 06.02.2023 gününden beri karanlıkta.  İnsanlar hala deprem çadırlarında hayat mücadelesi veriyor.</p>
+            <p>Bazıları ailelerinin tüm fertlerini kaybetmiş, tek başına ayakta durmaya çalışıyor. Eğer bireysel olarak yardım etmek istiyorsan az da olsa paylaş!</p>
+        </div>
 
         <form method="post" action="calculateNisap">
             <div class="form-group">
                 <label for="DolarAdet">Dolar Adet:</label>
                 <input type="text" class="form-control" name="DolarAdet" placeholder="Your Dolar..." />
-          
 
                 <label for="SterlinAdet">Sterlin Adet:</label>
                 <input type="text" class="form-control" name="SterlinAdet" placeholder="Your Sterlin..." />
@@ -133,8 +179,8 @@ button[type=submit]:hover {
                 <button type="submit" class="btn btn-primary">Hesapla</button>
             </div>
         </form>
-        <a href="https://bagis.tdv.org/?gclid=CjwKCAiAq4KuBhA6EiwArMAw1PTBvoYx1SQTZ8_4FdctKYzNS4eyyl_YpkkLIWQpRb5mnO5HIwcYXRoCZ1wQAvD_BwE" target="_blank">Bağış Yap</a>
 
+        
         @if (Model != null && Model.isMalik)
         {
             <div class="alert alert-success mt-3" role="alert">
@@ -149,7 +195,7 @@ button[type=submit]:hover {
             </div>
         }
 
-
     </div>
+
 </body>
 </html>
