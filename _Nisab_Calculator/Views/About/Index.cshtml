@@ -1,4 +1,5 @@
-﻿
+﻿@model _Nisab_Calculator.Models.AboutModel
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,10 +108,6 @@ button[type=submit]:hover {
   top:0px;
 }
 
-.try{
-    bottom:right;
-}
-
 .col-25 {
   float: left;
   width: 25%;
@@ -129,6 +126,11 @@ button[type=submit]:hover {
   clear: both;
 }
 
+.yeniden{
+    float:right;
+    bottom:right;
+}
+
 </style>
 </head>
 
@@ -136,47 +138,15 @@ button[type=submit]:hover {
     <div class="container mt-5">
         <ul>
             <li><a class="active" href="/">Anasayfa</a></li>
-            <li><a href=/>Zekat</a></li>
+            <li><a href= />Zekat</a></li>
             <li><a href="Fidye">Fidye</a></li>
             <li><a href="/About">Hakkımızda</a></li>
 
         </ul>
 
-    <form id="calculate" method="post" action="Fidye/calculateFidye">
-        <div class="form-group">
-            <h1>Fidye aşağıda listelenen ürünleri üzeriden verilir. Dilersenin bedelini de verebilirsiniz...</h1>
-            <label for="AileÜyesi">Lütfen aşağıdaki alanı doldurunuz.</label>
-            <input type="text" class="form-control" name="AileÜyesi" placeholder="Ailenizden kaç kişi adına fidye verdiğinizi giriniz." />
-
-        </div>
-        
-        <br />
-        <div class="row">
-            <button type="submit" class="btn btn-primary">Hesapla</button>
-        </div>
-    </form>
-        <form class="try" action="/Fidye" method="get">
-        <button type="submit">Yeniden hesaplamak için tıkla.</button>
-    </form>
-    @if (Model != null && Model.AileÜyesi != 0)
-    {
-        <div class="alert alert-success mt-3" role="alert">
-            <h1>Vermeniz gereken fidye tutarı aşağıda listelenmiştir. İstediğinizi seçip ihtiyaç sahiplerine yardım edebilirsiniz.</h1> @Model.AileÜyesi kişi için
-            <p>Arpa ürünü üzerinden vermeniz gereken miktar: </p >@Model.ArpaFiyatı <span>TL</span>
-                <p>Un ürünü üzerinden vermeniz gereken miktar: </p>@Model.UnFiyatı <span>TL</span>
-                <p>Hurma ürünü üzerinden vermeniz gereken miktar: </p>@Model.HurmaFiyatı <span>TL</span>
-                <p>Buğday ürünü üzerinden vermeniz gereken miktar: </p> @Model.BuğdayFiyatı <span>TL</span>
-                <p>Kuruüzüm ürünü üzerinden vermeniz gereken miktar: </p> @Model.KuruÜzümFiyatı <span>TL</span>
-        </div>
-        <h3>Bu ürünlerin fiyatları piyasa ortalamasına göre alınmıştır.</h3>
-    }
-    else
-    {
-        <div class="alert alert-info mt-3" role="alert">
-            Lütfen Giriş yapınız.
-        </div>
-    }
+   
     
+
+    </div>
 </body>
- 
 </html>
