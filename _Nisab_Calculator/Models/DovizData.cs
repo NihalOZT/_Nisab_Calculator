@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-    public class Root
+    public class DovizData
     {
     public Currency USD { get; set; }
     public Currency EUR { get; set; }

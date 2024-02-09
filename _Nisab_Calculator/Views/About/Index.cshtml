@@ -42,63 +42,6 @@
 * {
   box-sizing: border-box;
 }
-img {
-            margin: 0px;
-            padding:0px;
-            margin-left:40px;
-}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-.baslık{
-            margin-left: 250px;
-            margin-right: auto;
-            width: 50em;
-             color: #01796F;
-}
-
-.metin{
-           font-size:35px;
-           color: #01796F;
-           top:100px;
-           bottom:100px;
-}
-
- .son{
-            background-color: #01796F;
-         
- }
-
- .son p{
-     font-size:20px;
-     color:white;
-     
- }
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-button[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-button[type=submit]:hover {
-  background-color: #45a049;
-}
 
 .container {
   border-radius: 5px;
@@ -108,28 +51,22 @@ button[type=submit]:hover {
   top:0px;
 }
 
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
+h1{
+  text-align:center;
+  color: #01796F;
+ }
 
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
+ .ilk-div{
+ background-color:rebeccapurple;
 
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+ }
+ .text{
+     
+     font-size: 20px;
+ }
 
-.yeniden{
-    float:right;
-    bottom:right;
-}
+ p{ color:darkkhaki;}
+ 
 
 </style>
 </head>
@@ -146,16 +83,22 @@ button[type=submit]:hover {
 
         <div>
             <h1> Biz Kimiz? Neden Kurumlar üzerinden yardımlaşmaya karşıyız?</h1>
-            <p>Bizler bireysel yardımlaşmaya inanıyoruz. </p>
-            <img src="/images/pexels-pixabay-265702.jpg" alt="" style="width:50%;height:300px;">
-            <p>Yapacağın yardım miktarını kendin hesapla, kendin hazırla, kendin ilet ve yaptığın yardımın yerine ulaştığından emin ol.</p>
-            <p>06.02.2023 yılında olan deprem ülkemizin her vatandaşının yüzüne acı bir gerçeği çarptı. </p>
-            <p>Bu da yapmış olduğumuz bağışların insanlara göstermelik olarak ulaştırıldığı gerçeğidir. </p>
-            <p>Aradan geçen bir yılda gördüğümüz deprem çadırlarında yaşamaya çalışan insanların çaresizliği ve kurumların yetersiz kaldığıdır. </p>
-
-        </div>
-   
-    
+            <div class="ilk-div">
+                <div class="text">
+                    <div style="float:left; width:45%;">
+                        <img src="/images/pexels-pixabay-265702.jpg" alt="" style="width:100%;">
+                    </div>
+                    <div style="float:right; width:50%;">
+                        <p>Bizler bireysel yardımlaşmaya inanıyoruz.</p>
+                        <p> Yapacağın yardım miktarını kendin hesapla, kendin hazırla, kendin ilet ve yaptığın yardımın yerine ulaştığından emin ol.</p>
+                        <p>06.02.2023 yılında olan deprem ülkemizin her vatandaşının yüzüne acı bir gerçeği çarptı.</p>
+                        <p> Bu da yapmış olduğumuz bağışların insanlara göstermelik olarak ulaştırıldığı gerçeğidir.</p>
+                        <p> Aradan geçen bir yılda gördüğümüz deprem çadırlarında yaşamaya çalışan insanların çaresizliği ve kurumların yetersiz kaldığıdır.
+                        </p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
 
     </div>
 </body>

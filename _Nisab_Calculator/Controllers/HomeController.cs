@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using Newtonsoft.Json;
 using System.Reflection.Metadata.Ecma335;
+using System.Diagnostics.Eventing.Reader;
 
 
 namespace _Nisab_Calculator.Controllers
@@ -11,7 +12,7 @@ namespace _Nisab_Calculator.Controllers
     {
         [HttpPost]
         [Route("getData")]
-        public async Task<Root> getData()
+        public async Task<DovizData> getData()
         {
             using var httpClient = new HttpClient();
 
@@ -19,16 +20,15 @@ namespace _Nisab_Calculator.Controllers
 
             var response = await httpClient.PostAsync("https://api.genelpara.com/embed/doviz.json", postData);
 
-
             string content = await response.Content.ReadAsStringAsync();
-            Root data = JsonConvert.DeserializeObject<Root>(content);
+            DovizData data = JsonConvert.DeserializeObject<DovizData>(content);
 
             return data;
         }
 
         public CalculateDto calculatorNisab([FromBody] CalculateDto calculateDto)
         {
-            Root root = getData().Result;
+            DovizData root = getData().Result;
 
             calculateDto.toplam = (
                 Double.Parse(root.USD.Alis) * calculateDto.DolarAdet +
@@ -60,6 +60,30 @@ namespace _Nisab_Calculator.Controllers
             return View("Index", calculateNisab);
 
         }
+
+        [HttpPost]
+        [Route("User")]
+        public bool Login(User önyüzdenUser)
+        {
+            User user1 = new User();
+            user1 = getUser(önyüzdenUser);
+            if(önyüzdenUser.username == user1.username && önyüzdenUser.password == user1.password)
+            {
+                return true;
+            }
+
+            return false; 
+        }
+
+       
+        public User getUser([FromBody] User user)
+        {
+            user.username = "nihal";
+            user.password = "asddsa";
+        return user;
+        
+        }
+
 
         public IActionResult Index()
         {
