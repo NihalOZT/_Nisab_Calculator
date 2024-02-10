@@ -8,7 +8,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace _Nisab_Calculator.Controllers
 {
-    public class HomeController : Controller
+    public class ZekatController : Controller
     {
         [HttpPost]
         [Route("getData")]
@@ -61,16 +61,12 @@ namespace _Nisab_Calculator.Controllers
 
         }
 
-        
-
-       
-    
-
-
         public IActionResult Index()
         {
             return View();
         }
+
+        
         
     }
 }

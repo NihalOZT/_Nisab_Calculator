@@ -1,4 +1,4 @@
-﻿@model _Nisab_Calculator.Models.CalculateDto
+﻿@model List<_Nisab_Calculator.Models.Comment>
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +71,7 @@
                 color: white;
             }
 
-        
+
         .container {
             border-radius: 5px;
             background-color: #f2f2f2;
@@ -89,30 +89,16 @@
             <li><a href="/Zekat">Zekat</a></li>
             <li><a href="Fidye">Fidye</a></li>
             <li><a href="/About">Hakkımızda</a></li>
-            <li><a href="/Comment">Yardımlar</a></li>
-            <li><a href="/User/login">Giriş yap</a></li>
-            <li><a href="/User/add">Kayıt ol</a></li>
-
 
         </ul>
-        <div class="button-container">
-            <button class="login-button" onclick="location.href='user/loginaction'">Login</button>
-            <button class="register-button" onclick="location.href='user/add'">Register</button>
-        </div>
         <h1 class="baslık">
-            Eğer bir ışığın varsa, onu insanlarla paylaş; eğer bir karanlığın varsa onu güneşle paylaş!
+            Bu sayfada ihtiyaç sahipleriyle iletişime geçebilirsiniz.
         </h1>
+        @foreach (var item in Model)
+        {
+            <li>@item.Content</li>
 
-        <img src="/images/slide-1.jpeg" alt="" style="width:30%;height:300px;">
-        <img src="/images/slide-2.jpeg" alt="" style="width:30%;height:300px;">
-        <img src="/images/slide-3.jpeg" alt="" style="width:30%;height:300px;">
-
-        <div class="metin">
-            <p>Güneydoğu Anadolu Bölgesi 06.02.2023 gününden beri karanlıkta.  İnsanlar hala deprem çadırlarında hayat mücadelesi veriyor.</p>
-            <p>Bazıları ailelerinin tüm fertlerini kaybetmiş, tek başına ayakta durmaya çalışıyor. Eğer bireysel olarak yardım etmek istiyorsan az da olsa paylaş!</p>
-        </div>
-
-
+        }
     </div>
 
 </body>
