@@ -129,6 +129,12 @@ button[type=submit]:hover {
   clear: both;
 }
 
+ .try{
+ position: fixed;
+ bottom: 20px; 
+ right: 20px; 
+ }
+
 </style>
 </head>
 
@@ -145,7 +151,6 @@ button[type=submit]:hover {
     <form id="calculate" method="post" action="Fidye/calculateFidye">
         <div class="form-group">
             <h1>Fidye aşağıda listelenen ürünleri üzeriden verilir. Dilersenin bedelini de verebilirsiniz...</h1>
-            <label for="AileÜyesi">Lütfen aşağıdaki alanı doldurunuz.</label>
             <input type="text" class="form-control" name="AileÜyesi" placeholder="Ailenizden kaç kişi adına fidye verdiğinizi giriniz." />
 
         </div>
@@ -173,10 +178,10 @@ button[type=submit]:hover {
     else
     {
         <div class="alert alert-info mt-3" role="alert">
-            Lütfen Giriş yapınız.
+            Lütfen Yukarıdaki alanı doldurunuz.
         </div>
     }
-    
+    </div>
 </body>
  
 </html>
