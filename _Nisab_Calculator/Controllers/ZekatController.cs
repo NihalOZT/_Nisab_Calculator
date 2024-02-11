@@ -8,6 +8,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace _Nisab_Calculator.Controllers
 {
+    [Route("[controller]")]
     public class ZekatController : Controller
     {
         [HttpPost]
@@ -25,7 +26,7 @@ namespace _Nisab_Calculator.Controllers
 
             return data;
         }
-
+        [Route("action")]
         public CalculateDto calculatorNisab([FromBody] CalculateDto calculateDto)
         {
             DovizData root = getData().Result;

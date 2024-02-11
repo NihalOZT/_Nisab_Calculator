@@ -107,6 +107,8 @@
             <li><a href="/Zekat">Zekat</a></li>
             <li><a href="Fidye">Fidye</a></li>
             <li><a href="/About">Hakkımızda</a></li>
+            <li><a href="/Comment/GetComments">Yardımlar</a></li>
+
 
         </ul>
         <h1 class="baslık">
@@ -159,9 +161,7 @@
                             </div>
                         </div>
                     </div>
-                             <div>
-                              <p class="mt-1 text-muted">125 yorum</p>
-                             </div>
+                 
                         </div>
                     </div>
                 </div>
@@ -178,11 +178,7 @@
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             })
         </script>
-        @foreach (var item in Model)
-        {
-            <li>@item.Content</li>
-
-        }
+    
     </div>
     }
 </body>

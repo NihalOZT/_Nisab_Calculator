@@ -109,7 +109,7 @@ button[type=submit]:hover {
 
         </ul>
         
-        <form method="post" action="calculateNisap">
+        <form method="post" action="Zekat/calculateNisap">
             <div class="form-group">
                 <label for="DolarAdet">Dolar Adet:</label>
                 <input type="text" class="form-control" name="DolarAdet" placeholder="Your Dolar..." />
@@ -138,13 +138,15 @@ button[type=submit]:hover {
                 <button type="submit" class="btn btn-primary">Hesapla</button>
             </div>
         </form>
-
+        <form class="try" action="/Zekat" method="get">
+            <button type="submit">Yeniden hesaplamak için tıkla.</button>
+        </form>
         
         @if (Model != null && Model.isMalik)
         {
             <div class="alert alert-success mt-3" role="alert">
                 Toplam değer 80.18'den büyük! Maliksiniz.
-                Vermeniz gereken miktar toplam { @Model.zekat}
+                Vermeniz gereken miktar toplam @Model.zekat gram altın ya da ederinde banknot karşılıklarını verebilirsiniz.
             </div>
         }
         else

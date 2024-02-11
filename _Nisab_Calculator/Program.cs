@@ -32,7 +32,7 @@ app.MapControllerRoute(
     name: "fidye",
     pattern: "{controller=Fidye}/{action=Index}/{id?}");
 app.MapControllerRoute(
-    name: "Index",
+    name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "zekat",
