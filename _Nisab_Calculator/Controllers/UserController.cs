@@ -52,14 +52,11 @@ namespace _Nisab_Calculator.Controllers
         }
 
         [HttpPost]
-        [Route("add")]
-        public User Create([FromBody] User user)
+        [Route("addAction")]
+        public IActionResult Register([FromForm] User user)
         {
-            
-                _userRepository.Add(user);
-            
-
-            return user;
+            _userRepository.Add(user);
+            return RedirectToAction("CommentSuccess");
         }
 
         public ActionResult Edit(int id)
@@ -112,15 +109,15 @@ namespace _Nisab_Calculator.Controllers
 
         [HttpPost]
         [Route("loginn")]
-        public bool Login([FromForm] User önyüzdenUser)
+        public IActionResult Login([FromForm] User önyüzdenUser)
         {
             User user1 = getByUsername(önyüzdenUser.username).Result;
             if (önyüzdenUser.username == user1.username && önyüzdenUser.password == user1.password)
             {
-                return true;
+                return RedirectToAction("LoginSuccess");
             }
 
-            return false;
+            return View();
         }
         [HttpGet]
         [Route("loginaction")]
@@ -135,6 +132,13 @@ namespace _Nisab_Calculator.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Route("add")]
+        public IActionResult Register()
+        {
+            return View("/Views/User/Register.cshtml");
+        }
         public IActionResult Index()
         {
             return View();
@@ -145,10 +149,20 @@ namespace _Nisab_Calculator.Controllers
             addComment(addCommentDto);
             return RedirectToAction("CommentSuccess");
         }
-        [Route("success")]
+        [Route("successComment")]
         public IActionResult CommentSuccess()
         {
             return View("/Views/User/CommentSuccess.cshtml");
+        }
+        [Route("LoginSuccess")]
+        public IActionResult LoginSuccess()
+        {
+            return View("/Views/User/LoginSuccess.cshtml");
+        }
+        [Route("RegisterSuccess")]
+        public IActionResult RegisterSuccess()
+        {
+            return View("/Views/User/RegisterSuccess.cshtml");
         }
     }
 }
