@@ -36,17 +36,16 @@ namespace _Nisab_Calculator.Controllers
             return entity;
         }
 
-        public Comment addComment(int userId, Comment entity)
+        public Comment addComment(AddCommentDto addCommentDto)
         {
-            userId = GetById(userId).id;
-            entity.User = GetById(userId);
-            entity.UserId = userId;
-            entity.User.comments.Add(entity);
-            _dbContext.Comments.Add(entity);
-            entity.User = _dbContext.GetByUserId(entity.UserId).Result;
-            _dbContext.Update(GetById(userId));
+            Comment comment = new Comment();
+            comment.Content = addCommentDto.Content; 
+            comment.User = GetByUsername(addCommentDto.username).Result;
+            comment.UserId = comment.User.id;
+            Update(comment.User);
+            _dbContext.Comments.Add(comment);
             _dbContext.SaveChanges();
-            return entity;
+            return comment;
         }
 
         public void Update(User entity)

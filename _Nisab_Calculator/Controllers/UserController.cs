@@ -27,7 +27,6 @@ namespace _Nisab_Calculator.Controllers
         public ActionResult GetUser(int id)
         {
             var user = _userRepository.GetById(id);
-            var comments = user.comments;
             return View(user);
         }
 
@@ -94,14 +93,22 @@ namespace _Nisab_Calculator.Controllers
             _userRepository.Delete(user);
             return RedirectToAction("Index");
         }
-        [Route("comment/{userId}")]
+        [Route("comment/")]
         [HttpPost]
-        public Comment addComment(int userId,[FromBody] Comment comment)
+        public AddCommentDto addComment([FromBody] AddCommentDto comment)
         {
-            _userRepository.addComment(userId, comment);
+            _userRepository.addComment(comment);
 
             return comment;
         }
+        [Route("commentPage")]
+        [HttpGet]
+        public IActionResult commentPage()
+        {
+
+            return View("/Views/User/commentPage.cshtml");
+        }
+
 
         [HttpPost]
         [Route("loginn")]
@@ -132,6 +139,16 @@ namespace _Nisab_Calculator.Controllers
         {
             return View();
         }
-
+        [Route("addComment")]
+        public IActionResult Add([FromForm] AddCommentDto addCommentDto)
+        {
+            addComment(addCommentDto);
+            return RedirectToAction("CommentSuccess");
+        }
+        [Route("success")]
+        public IActionResult CommentSuccess()
+        {
+            return View("/Views/User/CommentSuccess.cshtml");
+        }
     }
 }

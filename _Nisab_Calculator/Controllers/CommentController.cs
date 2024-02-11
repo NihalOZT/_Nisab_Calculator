@@ -22,6 +22,13 @@ namespace _Nisab_Calculator.Controllers
             var comments = _commentRepository.GetAll();
             return View("Index", comments);
         }
+        [HttpGet]
+        [Route("GetComments")]
+        public IActionResult GetComments()
+        {
+            var comments = GetAllCommentsWithUsers();
+            return View("Index", comments);
+        }
         [Route("com")]
         public List<Comment> GetAllCommentsWithUsers()
         {

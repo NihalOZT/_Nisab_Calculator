@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model _Nisab_Calculator.Models.AddCommentDto
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,21 +59,26 @@
     </style>
 </head>
 <body>
+    
     <div class="login-container">
-        <h2>Login</h2>
-        <form action="loginn" method="POST">
-            <div class="form-group">
-                <label for="username">Username:</label>
+        <h2>Yorumlar</h2>
+        <!-- comment.cshtml -->
+        <form action="addComment" method="post">
+            <div>
+                <label for="username">Kullanıcı Adı:</label>
                 <input type="text" id="username" name="username" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            <div>
+                <label for="content">Yorumunuz:</label>
+                <textarea id="content" name="content" rows="4" cols="50" required></textarea>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Login">
+            <div>
+                <button type="submit">Yorum Yap</button>
             </div>
         </form>
+
+       
+
     </div>
 </body>
 </html>

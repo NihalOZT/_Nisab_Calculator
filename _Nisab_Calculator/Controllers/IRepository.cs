@@ -11,6 +11,6 @@ namespace _Nisab_Calculator.Controllers
             User Add(User entity);
             void Update(User entity);
             void Delete(User entity);
-            Comment addComment(int userId, Comment comment);
+            Comment addComment(AddCommentDto addCommentDto);
     }
 }
