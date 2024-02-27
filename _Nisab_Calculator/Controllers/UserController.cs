@@ -65,18 +65,6 @@ namespace _Nisab_Calculator.Controllers
             return View(user);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(Product product)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _productRepository.Update(product);
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(product);
-        //}
-
         public ActionResult Delete(int id)
         {
             var user = _userRepository.GetById(id);
